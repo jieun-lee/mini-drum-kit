@@ -18,8 +18,8 @@ Vue.component('drum', {
         <div
             class="drum"
             :style="pressed ? { backgroundColor: this.colour } : ''"
-            @click="playSound"
-            @mousedown="highlightDrum"
+            @click="dehighlightDrum"
+            @mousedown="playSound"
         >
             <h2>{{ name }}</h2>
             <p class="drum-letter">{{ keyLetter }}</p>
@@ -39,21 +39,21 @@ Vue.component('drum', {
         playSound() {
             var sound = new Audio(this.sound);
             sound.play();
-            this.pressed = false;
-        },
-        highlightDrum() {
             this.pressed = true;
+        },
+        dehighlightDrum() {
+            this.pressed = false;
         }
     },
     mounted() {
         window.addEventListener('keydown', (event) => {
             if(event.keyCode === this.keyCode) {
-                this.highlightDrum();
+                this.playSound();
             }
         });
         window.addEventListener('keyup', (event) => {
             if(event.keyCode === this.keyCode) {
-                this.playSound();
+                this.dehighlightDrum();
             }
         });
     }
