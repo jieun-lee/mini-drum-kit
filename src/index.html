@@ -1,15 +1,18 @@
 <html>
     <head>
         <title>Mini Drum Kit</title>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script> -->
-        <script type="text/javascript" src="script.js"></script>
         <link type="text/css" rel="stylesheet" href="styles.css"/>
     </head>
     <body>
         <div id="app">
             <h1>{{ title }}</h1>
             <p>Audio Files from the Focusrite Drum Pack</p>
+            <drum type="Kick"></drum>
+            <drum type="Snare"></drum>
+            <drum type="Hat"></drum>
+            <drum type="Crash"></drum>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script type="text/javascript" src="script.js"></script>
     </body>
 </html>
