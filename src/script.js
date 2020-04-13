@@ -1,8 +1,8 @@
 var keyCodes = {
-    "Kick": 69,     // "e"
-    "Hat": 74,      // "j"
-    "Snare": 70,    // "f"
-    "Crash": 73     // "i"
+    "Kick": ["e", 69],
+    "Hat": ["j", 74],
+    "Snare": ["f", 70],
+    "Crash": ["i", 73]
 }
 
 var colourCodes = {
@@ -22,14 +22,15 @@ Vue.component('drum', {
             @mousedown="highlightDrum"
         >
             <h2>{{ name }}</h2>
-            <p>{{ keycode }}</p>
+            <p class="drum-letter">{{ keyLetter }}</p>
         </div>
     `,
     data() {
         return {
             name: this.type,
             sound: "audio/" + this.type + ".wav",
-            keycode: keyCodes[this.type],
+            keyLetter: keyCodes[this.type][0],
+            keyCode: keyCodes[this.type][1],
             colour: colourCodes[this.type],
             pressed: false
         }
@@ -46,12 +47,12 @@ Vue.component('drum', {
     },
     mounted() {
         window.addEventListener('keydown', (event) => {
-            if(event.keyCode === this.keycode) {
+            if(event.keyCode === this.keyCode) {
                 this.highlightDrum();
             }
         });
         window.addEventListener('keyup', (event) => {
-            if(event.keyCode === this.keycode) {
+            if(event.keyCode === this.keyCode) {
                 this.playSound();
             }
         });

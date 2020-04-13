@@ -19,6 +19,13 @@
     border: 1px solid black;
 }
 
+.drum-letter {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: sans-serif;
+    text-transform: capitalize;
+}
+
 p {
     margin-top: 0;
 }
