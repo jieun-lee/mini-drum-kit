@@ -33,7 +33,7 @@ Vue.component('drum', {
     data() {
         return {
             name: this.type,
-            sound: "audio/" + this.type + ".wav",
+            sound: "src/audio/" + this.type + ".wav",
             keyLetter: keyCodes[this.type][0],
             keyCode: keyCodes[this.type][1],
             colour: colourCodes[this.type],
