@@ -1,11 +1,15 @@
 <html>
     <head>
         <title>Mini Drum Kit</title>
-        <link type="text/css" rel="stylesheet" href="styles.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script> -->
         <script type="text/javascript" src="script.js"></script>
+        <link type="text/css" rel="stylesheet" href="styles.css"/>
     </head>
     <body>
-        <h1>Mini Drum Kit</h1>
-        <p>Audio Files from the Focusrite Drum Pack</p>
+        <div id="app">
+            <h1>{{ title }}</h1>
+            <p>Audio Files from the Focusrite Drum Pack</p>
+        </div>
     </body>
 </html>
