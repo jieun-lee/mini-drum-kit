@@ -1,28 +1,33 @@
 var keyCodes = {
     "Kick": ["e", 69],
-    "Hat": ["j", 74],
     "Snare": ["f", 70],
+    "Hat": ["j", 74],
     "Crash": ["i", 73]
 }
 
 var colourCodes = {
     "Kick": '#7abeeb',
-    "Hat": '#fff9a1',
-    "Snare": '#c6f2a7',
+    "Snare": '#fff9a1',
+    "Hat": '#c6f2a7',
     "Crash": '#fc92a4',
 }
 
 Vue.component('drum', {
     props: ['type'],
     template: `
-        <div
-            class="drum"
-            :style="pressed ? { backgroundColor: this.colour } : ''"
-            @click="dehighlightDrum"
-            @mousedown="playSound"
-        >
-            <h2>{{ name }}</h2>
-            <p class="drum-letter">{{ keyLetter }}</p>
+        <div>
+            <div
+                class="drum"
+                :style="pressed ? { backgroundColor: this.colour } : ''"
+                @click="dehighlightDrum"
+                @mousedown="playSound"
+            >
+                <h2>{{ name }}</h2>
+                <p class="drum-letter">{{ keyLetter }}</p>
+            </div>
+            <div>
+                <input type="range" min="0" max="10" value="5" class="slider" v-model="volSlider">
+            </div>
         </div>
     `,
     data() {
@@ -32,12 +37,19 @@ Vue.component('drum', {
             keyLetter: keyCodes[this.type][0],
             keyCode: keyCodes[this.type][1],
             colour: colourCodes[this.type],
+            volSlider: 5,
             pressed: false
+        }
+    },
+    computed: {
+        volume() {
+            return this.volSlider / 10;
         }
     },
     methods: {
         playSound() {
             var sound = new Audio(this.sound);
+            sound.volume = this.volume;
             sound.play();
             this.pressed = true;
         },
