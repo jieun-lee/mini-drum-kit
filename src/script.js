@@ -10,7 +10,7 @@ var keycodes = {
 Vue.component('drum', {
     props: ['type'],
     template: `
-        <div>
+        <div class="drum">
             <h2>{{ name }}</h2>
             <p>{{ keycode }}</p>
             <button @click="playSound">Play {{ name }}</button>

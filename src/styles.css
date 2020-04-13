@@ -1,3 +1,24 @@
 #app {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.drums-wrapper {
+    display: flex;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 8px;
+    border: 1px solid black;
+}
+
+.drum {
+    width: 100px;
+    padding: 8px;
+    padding-bottom: 28px;
+    border: 1px solid black;
+}
+
+p {
+    margin-top: 0;
 }
