@@ -27,6 +27,13 @@ Vue.component('drum', {
             var sound = new Audio(this.sound);
             sound.play();
         }
+    },
+    mounted() {
+        window.addEventListener('keyup', (event) => {
+            if(event.keyCode === this.keycode) {
+                this.playSound();
+            }
+        })
     }
 });
 
