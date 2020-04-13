@@ -1,15 +1,8 @@
-// returns the keycode for the given event
-var getDefaultKeyCode = function(type) {
-    switch(type) {
-        case "Kick":
-            return 69; // "e"
-        case "Snare":
-            return 70; // "f"
-        case "Hat":
-            return 74; // "j"
-        case "Crash":
-            return 73; // "i"
-    }
+var keycodes = {
+    "Kick": 69,     // "e"
+    "Snare": 70,    // "f"
+    "Hat": 74,      // "j"
+    "Crash": 73     // "i"
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -27,7 +20,7 @@ Vue.component('drum', {
         return {
             name: this.type,
             sound: "audio/" + this.type + ".wav",
-            keycode: getDefaultKeyCode(this.type),
+            keycode: keycodes[this.type],
         }
     },
     methods: {
