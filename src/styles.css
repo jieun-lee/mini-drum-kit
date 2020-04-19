@@ -4,6 +4,10 @@
     flex-direction: column;
 }
 
+.description {
+    margin-bottom: 4px;
+}
+
 .drums-wrapper {
     display: flex;
     max-width: 600px;
