@@ -7,12 +7,12 @@ Vue.use(VueRouter)
 
   const routes = [
   {
-    path: '',
+    path: '/mini-drum-kit',
     name: 'Play',
     component: Play
   },
   {
-    path: '/sequence',
+    path: '/mini-drum-kit/sequence',
     name: 'Sequence',
     component: Sequence
   }
