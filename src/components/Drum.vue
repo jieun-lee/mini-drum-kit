@@ -7,7 +7,7 @@
       @mousedown="playSound"
     >
       <h2>{{ name }}</h2>
-      <p class="drum-letter">{{ keyLetter }}</p>
+      <p class="drum__letter">{{ keyLetter }}</p>
     </div>
     <div>
       <input type="range" min="0" max="10" value="5" class="slider" v-model="volSlider">
@@ -74,19 +74,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .drum {
   width: 110px;
   padding: 8px;
   margin: 8px;
   padding-bottom: 16px;
   border: 2px solid black;
-}
 
-.drum-letter {
-  font-size: 18px;
-  font-weight: 600;
-  font-family: sans-serif;
-  text-transform: capitalize;
+  &__letter {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: sans-serif;
+    text-transform: capitalize;
+  }
 }
 </style>
