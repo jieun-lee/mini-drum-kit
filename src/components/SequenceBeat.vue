@@ -1,15 +1,18 @@
 <template>
   <div class="beat">
-    <SequenceSubBeat />
-    <SequenceSubBeat />
-    <SequenceSubBeat />
-    <SequenceSubBeat />
+    <SequenceSubBeat :typeIndex="this.typeIndex" />
+    <SequenceSubBeat :typeIndex="this.typeIndex" />
+    <SequenceSubBeat :typeIndex="this.typeIndex" />
+    <SequenceSubBeat :typeIndex="this.typeIndex" />
   </div>
 </template>
 
 <script>
 import SequenceSubBeat from "@/components/SequenceSubBeat";
 export default {
+  props: {
+    typeIndex: Number
+  },
   components: {
     SequenceSubBeat
   }

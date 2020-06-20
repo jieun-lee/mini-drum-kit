@@ -10,25 +10,25 @@
       "type": "Kick",
       "keyLetter": "e",
       "keyCode": 69,
-      "colour": "#7abeeb"
+      "color": "#7abeeb"
     },
     {
         "type": "Snare",
         "keyLetter": "f",
         "keyCode": 70,
-        "colour": "#fff9a1"
+        "color": "#fff9a1"
     },
     {
         "type": "Hat",
         "keyLetter": "j",
         "keyCode": 74,
-        "colour": "#c6f2a7"
+        "color": "#c6f2a7"
     },
     {
         "type": "Crash",
         "keyLetter": "i",
         "keyCode": 73,
-        "colour": "#fc92a4"
+        "color": "#fc92a4"
     }
   ]
 }

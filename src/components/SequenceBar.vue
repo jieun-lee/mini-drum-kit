@@ -2,10 +2,10 @@
   <div class="sequence-bar">
     <div class="sequence-bar__name">{{ this.name }}</div>
     <div class="sequence-bar__beats">
-      <SequenceBeat />
-      <SequenceBeat />
-      <SequenceBeat />
-      <SequenceBeat />
+      <SequenceBeat :typeIndex="this.typeIndex" />
+      <SequenceBeat :typeIndex="this.typeIndex" />
+      <SequenceBeat :typeIndex="this.typeIndex" />
+      <SequenceBeat :typeIndex="this.typeIndex" />
     </div>
   </div>
 </template>
@@ -17,10 +17,12 @@ export default {
   components: {
       SequenceBeat
   },
-  props: ["index"],
+  props: {
+    typeIndex: Number
+  },
   data() {
     return {
-      name: data.drums[this.index]["type"]
+      name: data.drums[this.typeIndex]["type"]
     }
   }
 }

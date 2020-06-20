@@ -1,13 +1,18 @@
 <template>
   <div class="sequence-view">
     <SequenceSettings :bpm="this.bpm" :timeIndex="this.timeIndex" />
-    <SequenceBar :index="this.indexMap['Kick']" />
-    <SequenceBar :index="this.indexMap['Snare']" />
-    <SequenceBar :index="this.indexMap['Hat']" />
-    <SequenceBar :index="this.indexMap['Crash']" />
-    <button class="sequence-view__play-button" @click="togglePlaying()">
-      {{ this.isPlaying ? "STOP" : "PLAY" }}
-    </button>
+    <SequenceBar :typeIndex="this.indexMap['Kick']" />
+    <SequenceBar :typeIndex="this.indexMap['Snare']" />
+    <SequenceBar :typeIndex="this.indexMap['Hat']" />
+    <SequenceBar :typeIndex="this.indexMap['Crash']" />
+    <div>
+      <button class="sequence-view__button" @click="togglePlaying()">
+        {{ this.isPlaying ? "STOP" : "PLAY" }}
+      </button>
+      <button class="sequence-view__button" @click="resetSequence()">
+        RESET
+      </button>
+    </div>
   </div>
 </template>
 
@@ -31,6 +36,9 @@ export default {
   methods: {
     togglePlaying() {
       this.isPlaying = !this.isPlaying;
+    },
+    resetSequence() {
+      console.log("reset");
     }
   }
 }
@@ -43,11 +51,12 @@ export default {
   @include view-layout;
   flex-direction: column;
 
-  &__play-button {
+  &__button {
     width: 100px;
     height: 30px;
     font-size: 18px;
     align-self: center;
+    margin: 0 6px;
   }
 }
 </style>

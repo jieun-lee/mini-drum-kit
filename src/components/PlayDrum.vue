@@ -2,7 +2,7 @@
   <div>
     <div
       class="drum"
-      :style="pressed ? { backgroundColor: this.colour } : ''"
+      :style="pressed ? { backgroundColor: this.color } : ''"
       @mousedown="playSound"
       @click="dehighlightDrum"
     >
@@ -27,7 +27,7 @@ export default {
       sound: require("@/assets/audio/"+ data.drums[this.index]["type"] + ".wav"),
       keyLetter: data.drums[this.index]["keyLetter"],
       keyCode: data.drums[this.index]["keyCode"],
-      colour: data.drums[this.index]["colour"],
+      color: data.drums[this.index]["color"],
       volSlider: 5,
       pressed: false
     }
