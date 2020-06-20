@@ -4,18 +4,26 @@
     <p class="description">Audio Files from the Focusrite Drum Pack</p>
     <p class="description">Works best on Google Chrome (desktop version)</p>
     <div class="drums-wrapper">
-      <drum type="Kick"></drum>
-      <drum type="Snare"></drum>
-      <drum type="Hat"></drum>
-      <drum type="Crash"></drum>
+      <Drum :index="this.indexMap['Kick']" />
+      <Drum :index="this.indexMap['Snare']" />
+      <Drum :index="this.indexMap['Hat']" />
+      <Drum :index="this.indexMap['Crash']" />
     </div>
   </div>
 </template>
 
 <script>
 import Drum from '@/components/Drum.vue';
+import data from "@/data/drums.json";
 export default {
-  components: { Drum }
+  components: {
+    Drum
+  },
+  data() {
+    return {
+      indexMap: data.indexMap
+    }
+  }
 }
 </script>
 

@@ -16,32 +16,22 @@
 </template>
 
 <script>
-var keyCodes = {
-  "Kick": ["e", 69],
-  "Snare": ["f", 70],
-  "Hat": ["j", 74],
-  "Crash": ["i", 73]
-}
-
-var colourCodes = {
-  "Kick": '#7abeeb',
-  "Snare": '#fff9a1',
-  "Hat": '#c6f2a7',
-  "Crash": '#fc92a4',
-}
+import data from "@/data/drums.json";
 
 export default {
-  props: ['type'],
+  props: {
+    index: Number
+  },
   data() {
     return {
-      name: this.type,
-      sound: require("@/assets/audio/" + this.type + ".wav"),
-      keyLetter: keyCodes[this.type][0],
-      keyCode: keyCodes[this.type][1],
-      colour: colourCodes[this.type],
+      name: data.drums[this.index]["type"],
+      sound: require("@/assets/audio/"+ data.drums[this.index]["type"] + ".wav"),
+      keyLetter: data.drums[this.index]["keyLetter"],
+      keyCode: data.drums[this.index]["keyCode"],
+      colour: data.drums[this.index]["colour"],
       volSlider: 5,
       pressed: false
-      }
+    }
   },
   computed: {
     volume() {
