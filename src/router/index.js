@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Play from '../views/Play.vue'
-import Sequence from '../views/Sequence.vue'
+import PlayView from '../views/PlayView.vue'
+import SequenceView from '../views/SequenceView.vue'
 
 Vue.use(VueRouter)
 
@@ -9,12 +9,12 @@ Vue.use(VueRouter)
   {
     path: '/mini-drum-kit',
     name: 'Play',
-    component: Play
+    component: PlayView
   },
   {
     path: '/mini-drum-kit/sequence',
     name: 'Sequence',
-    component: Sequence
+    component: SequenceView
   }
 ]
 
