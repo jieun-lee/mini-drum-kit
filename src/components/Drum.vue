@@ -3,8 +3,8 @@
     <div
       class="drum"
       :style="pressed ? { backgroundColor: this.colour } : ''"
-      @click="dehighlightDrum"
       @mousedown="playSound"
+      @click="dehighlightDrum"
     >
       <h2>{{ name }}</h2>
       <p class="drum__letter">{{ keyLetter }}</p>
@@ -17,7 +17,6 @@
 
 <script>
 import data from "@/data/drums.json";
-
 export default {
   props: {
     index: Number

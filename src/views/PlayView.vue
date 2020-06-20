@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <div class="play-view">
     <h1>Mini Drum Kit</h1>
-    <p class="description">Audio Files from the Focusrite Drum Pack</p>
-    <p class="description">Works best on Google Chrome (desktop version)</p>
-    <div class="drums-wrapper">
+    <p class="play-view__description">Audio Files from the Focusrite Drum Pack</p>
+    <p class="play-view__description">Works best on Google Chrome (desktop version)</p>
+    <div class="play-view__drums">
       <Drum :index="this.indexMap['Kick']" />
       <Drum :index="this.indexMap['Snare']" />
       <Drum :index="this.indexMap['Hat']" />
@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import Drum from '@/components/Drum.vue';
 import data from "@/data/drums.json";
+import Drum from '@/components/Drum.vue';
 export default {
   components: {
     Drum
@@ -28,24 +28,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#app {
+.play-view {
   text-align: center;
   display: flex;
   flex-direction: column;
-}
 
-.description {
-  margin-bottom: 4px;
-}
+  &__description {
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
 
-.drums-wrapper {
-  display: flex;
-  max-width: 600px;
-  margin: auto;
-  margin-top: 8px;
-}
-
-p {
-  margin-top: 0;
+  &__drums {
+    display: flex;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 8px;
+  }
 }
 </style>
