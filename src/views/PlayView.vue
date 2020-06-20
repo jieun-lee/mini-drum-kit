@@ -4,20 +4,20 @@
     <p class="play-view__description">Audio Files from the Focusrite Drum Pack</p>
     <p class="play-view__description">Works best on Google Chrome (desktop version)</p>
     <div class="play-view__drums">
-      <Drum :index="this.indexMap['Kick']" />
-      <Drum :index="this.indexMap['Snare']" />
-      <Drum :index="this.indexMap['Hat']" />
-      <Drum :index="this.indexMap['Crash']" />
+      <PlayDrum :index="this.indexMap['Kick']" />
+      <PlayDrum :index="this.indexMap['Snare']" />
+      <PlayDrum :index="this.indexMap['Hat']" />
+      <PlayDrum :index="this.indexMap['Crash']" />
     </div>
   </div>
 </template>
 
 <script>
 import data from "@/data/drums.json";
-import Drum from '@/components/Drum.vue';
+import PlayDrum from '@/components/PlayDrum.vue';
 export default {
   components: {
-    Drum
+    PlayDrum
   },
   data() {
     return {
@@ -28,6 +28,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/scss/_mixins.scss";
+
 .play-view {
   text-align: center;
   display: flex;
@@ -39,10 +41,7 @@ export default {
   }
 
   &__drums {
-    display: flex;
-    max-width: 600px;
-    margin: auto;
-    margin-top: 8px;
+    @include view-layout;
   }
 }
 </style>

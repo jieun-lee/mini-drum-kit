@@ -1,34 +1,34 @@
 {
-    "indexMap": {
-        "Kick": 0,
-        "Snare": 1,
-        "Hat": 2,
-        "Crash": 3
+  "indexMap": {
+    "Kick": 0,
+    "Snare": 1,
+    "Hat": 2,
+    "Crash": 3
+  },
+  "drums": [
+    {
+      "type": "Kick",
+      "keyLetter": "e",
+      "keyCode": 69,
+      "colour": "#7abeeb"
     },
-    "drums": [
-        {
-            "type": "Kick",
-            "keyLetter": "e",
-            "keyCode": 69,
-            "colour": "#7abeeb"
-        },
-        {
-            "type": "Snare",
-            "keyLetter": "f",
-            "keyCode": 70,
-            "colour": "#fff9a1"
-        },
-        {
-            "type": "Hat",
-            "keyLetter": "j",
-            "keyCode": 74,
-            "colour": "#c6f2a7"
-        },
-        {
-            "type": "Crash",
-            "keyLetter": "i",
-            "keyCode": 73,
-            "colour": "#fc92a4"
-        }
-    ]
+    {
+        "type": "Snare",
+        "keyLetter": "f",
+        "keyCode": 70,
+        "colour": "#fff9a1"
+    },
+    {
+        "type": "Hat",
+        "keyLetter": "j",
+        "keyCode": 74,
+        "colour": "#c6f2a7"
+    },
+    {
+        "type": "Crash",
+        "keyLetter": "i",
+        "keyCode": 73,
+        "colour": "#fc92a4"
+    }
+  ]
 }

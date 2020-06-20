@@ -64,12 +64,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/scss/_variables.scss";
+
 .drum {
   width: 110px;
   padding: 8px;
   margin: 8px;
   padding-bottom: 16px;
-  border: 2px solid black;
+  border: $border-default;
 
   &__letter {
     font-size: 18px;
