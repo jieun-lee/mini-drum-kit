@@ -44,17 +44,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/_variables";
-
-$name-box-size: 75px;
+@import "@/scss/_variables.scss";
 
 .sequence-bar {
   display: flex;
-  height: $name-box-size;
+  height: $sequence-label-size;
   margin-bottom: $margin-default;
 
   &__name {
-    width: $name-box-size;
+    width: $sequence-label-size;
     color: black;
     font-size: 18px;
     font-weight: 600;

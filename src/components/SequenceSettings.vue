@@ -40,9 +40,11 @@ export default {
 @import "@/scss/_variables.scss";
 
 .settings {
-  align-self: flex-end;
-  text-align: left;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
   margin-bottom: $margin-default;
+  margin-left: $sequence-label-size;
 
   &__label {
     font-weight: 700;
@@ -52,7 +54,7 @@ export default {
   &__time {
     &__menu {
       padding: 2px;
-      font-size: 18px;
+      font-size: 16px;
     }
   }
 

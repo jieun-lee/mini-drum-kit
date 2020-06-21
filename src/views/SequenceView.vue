@@ -74,7 +74,7 @@ export default {
     },
     resetSequence() {
       if (!this.isPlaying) {
-        this.sequences = makeEmptySequenceSet(this.numDrums, 1);
+        this.sequences = makeEmptySequenceSet(this.numDrums, this.timeIndex);
       }
     },
     sequenceClicked(type, beat, subBeat, value) {
