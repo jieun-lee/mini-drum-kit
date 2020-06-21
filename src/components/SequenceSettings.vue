@@ -5,8 +5,8 @@
     </div>
     <div class="settings__label settings__time">
       Time:
-      <select class="settings__time__menu">
-        <option v-for="(time, index) in times" :key="index" :selected="index === timeIndex">
+      <select class="settings__time__menu" @change="onTimeSignatureChanged">
+        <option v-for="(time, index) in times" :key="index" :selected="index === timeIndex" :value="index">
           {{ time.label }}
         </option>
       </select>
@@ -26,6 +26,11 @@ export default {
   data() {
     return {
       times: timeData.timeSignatures
+    }
+  },
+  methods: {
+    onTimeSignatureChanged(event) {
+      this.$emit("time-signature-changed", event.target.value);
     }
   }
 }

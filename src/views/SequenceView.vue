@@ -1,6 +1,10 @@
 <template>
   <div class="sequence-view">
-    <SequenceSettings :bpm="this.bpm" :timeIndex="this.timeIndex" :isPlaying="isPlaying" />
+    <SequenceSettings
+      :bpm="this.bpm"
+      :timeIndex="this.timeIndex"
+      :isPlaying="isPlaying"
+      @time-signature-changed="updateTimeSignature" />
     <SequenceBar
       v-for="(sequenceArray, index) in sequences"
       :key="keyPrefix + '-' + index"
@@ -27,6 +31,7 @@ import times from "@/data/times.json";
 import SequenceSettings from "@/components/SequenceSettings.vue";
 import SequenceBar from "@/components/SequenceBar.vue";
 import { makeEmptySequenceSet } from "@/utils.js";
+
 export default {
   components: {
     SequenceSettings,
@@ -35,10 +40,10 @@ export default {
   data() {
     return {
       keyPrefix: 0,
-      bpm: 120, // fixed (for now)
-      subBeats: 4, // fixed (for now)
-      timeIndex: 1, // fixed (for now)
-      sequences: makeEmptySequenceSet(4, 4, 4),
+      bpm: 120,
+      numDrums: 4,
+      timeIndex: 2,
+      sequences: makeEmptySequenceSet(4, 2),
       isPlaying: false,
       timer: 0,
       currBeat: -1,
@@ -62,27 +67,34 @@ export default {
     },
     updateSubBeat() {
       // update beat
-      this.currSubBeat = (this.currSubBeat >= 3) ? 0 : (this.currSubBeat + 1);
+      this.currSubBeat = (this.currSubBeat >= (this.numSubBeats - 1)) ? 0 : (this.currSubBeat + 1);
       if (this.currSubBeat === 0) {
-        this.currBeat = (this.currBeat >= 3) ? 0 : (this.currBeat + 1);
+        this.currBeat = (this.currBeat >= (this.numBeats - 1)) ? 0 : (this.currBeat + 1);
       }
     },
     resetSequence() {
       if (!this.isPlaying) {
-        this.sequences = makeEmptySequenceSet(4, 4, 4);
+        this.sequences = makeEmptySequenceSet(this.numDrums, 1);
       }
     },
     sequenceClicked(type, beat, subBeat, value) {
       this.sequences[type][beat][subBeat] = value;
       this.keyPrefix++;
+    },
+    updateTimeSignature(index) {
+      this.timeIndex = +index;
+      this.resetSequence();
     }
   },
   computed: {
     numBeats() {
-      return times.timeSignatures[this.timeIndex]["numerator"];
+      return times.timeSignatures[this.timeIndex]["numBeats"];
+    },
+    numSubBeats() {
+      return times.timeSignatures[this.timeIndex]["numSubBeats"];
     },
     msPerSubBeat() {
-      return 60000 / this.bpm / this.subBeats;
+      return 60000 / this.bpm / this.numSubBeats;
     }
   }
 }
