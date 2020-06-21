@@ -6,7 +6,7 @@
       :class="[ isSelected ? baseClasses + ' sub-beat--selected' : baseClasses ]"
       @click="toggleSubBeat(index, isSelected)"
     >
-      <div class="sub-beat__playing" v-if="isSelected && (currentSubBeat === index)">&#x25CF;</div>
+      <div class="sub-beat__playing" v-if="isSelected && isCurrBeat && (currSubBeat === index)">&#x25CF;</div>
   </div>
   </div>
 </template>
@@ -18,7 +18,9 @@ export default {
     type: Number,
     beat: Number,
     subBeats: Array,
-    isPlaying: Boolean
+    isPlaying: Boolean,
+    isCurrBeat: Boolean,
+    currSubBeat: Number
   },
   data() {
     return {

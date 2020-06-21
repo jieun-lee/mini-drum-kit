@@ -9,6 +9,8 @@
         :beat="index"
         :subBeats="beatData"
         :isPlaying="isPlaying"
+        :isCurrBeat="currBeat === index"
+        :currSubBeat="currSubBeat"
         @clicked-beat="beatClicked" />
     </div>
   </div>
@@ -24,7 +26,9 @@ export default {
   props: {
     type: Number,
     sequenceArray: Array,
-    isPlaying: Boolean
+    isPlaying: Boolean,
+    currBeat: Number,
+    currSubBeat: Number
   },
   data() {
     return {

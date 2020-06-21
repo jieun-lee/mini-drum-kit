@@ -18,8 +18,10 @@
 import timeData from "@/data/times.json";
 export default {
   props: {
-    "bpm": Number,
-    "timeIndex": Number,
+    bpm: Number,
+    timeIndex: Number,
+    // TODO: disable setting changes while playing
+    isPlaying: Boolean
   },
   data() {
     return {
