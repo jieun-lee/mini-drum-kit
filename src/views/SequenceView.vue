@@ -4,6 +4,7 @@
       :bpm="this.bpm"
       :timeIndex="this.timeIndex"
       :isPlaying="isPlaying"
+      @bpm-changed="updateBpm"
       @time-signature-changed="updateTimeSignature" />
     <SequenceBar
       v-for="(sequenceArray, index) in sequences"
@@ -40,7 +41,7 @@ export default {
   data() {
     return {
       keyPrefix: 0,
-      bpm: 120,
+      bpm: 80,
       numDrums: 4,
       timeIndex: 2,
       sequences: makeEmptySequenceSet(4, 2),
@@ -60,7 +61,6 @@ export default {
       this.isPlaying = !this.isPlaying;
     },
     resetTimer() {
-      // TODO: stop timer when going to another page
       clearInterval(this.timer);
       this.currBeat = -1;
       this.currSubBeat = -1;
@@ -80,6 +80,9 @@ export default {
     sequenceClicked(type, beat, subBeat, value) {
       this.sequences[type][beat][subBeat] = value;
       this.keyPrefix++;
+    },
+    updateBpm(value) {
+      this.bpm = value;
     },
     updateTimeSignature(index) {
       this.timeIndex = +index;
