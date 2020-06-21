@@ -17,7 +17,8 @@ export default {
   props: {
     type: Number,
     beat: Number,
-    subBeats: Array
+    subBeats: Array,
+    isPlaying: Boolean
   },
   data() {
     return {
@@ -27,7 +28,9 @@ export default {
   },
   methods: {
     toggleSubBeat(subBeat, isSelected) {
-      this.$emit("clicked-beat", this.beat, subBeat, !isSelected);
+      if (!this.isPlaying) {
+        this.$emit("clicked-beat", this.beat, subBeat, !isSelected);
+      }
     }
   },
 }

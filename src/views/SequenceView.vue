@@ -6,6 +6,7 @@
       :key="keyPrefix + '-' + index"
       :type="index"
       :sequenceArray="sequenceArray"
+      :isPlaying="isPlaying"
       @clicked-sequence="sequenceClicked" />
     <div>
       <button class="sequence-view__button" @click="togglePlaying()">

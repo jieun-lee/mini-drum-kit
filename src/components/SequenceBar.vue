@@ -8,6 +8,7 @@
         :type="type"
         :beat="index"
         :subBeats="beatData"
+        :isPlaying="isPlaying"
         @clicked-beat="beatClicked" />
     </div>
   </div>
@@ -22,7 +23,8 @@ export default {
   },
   props: {
     type: Number,
-    sequenceArray: Array
+    sequenceArray: Array,
+    isPlaying: Boolean
   },
   data() {
     return {
