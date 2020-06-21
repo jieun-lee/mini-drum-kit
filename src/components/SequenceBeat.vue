@@ -22,9 +22,17 @@ export default {
     isCurrBeat: Boolean,
     currSubBeat: Number
   },
+  updated() {
+    if (this.isCurrBeat && this.subBeats[this.currSubBeat]) {
+      var sound = new Audio(this.sound);
+      sound.volume = 0.5;
+      sound.play();
+    }
+  },
   data() {
     return {
       baseClasses: "sub-beat sub-beat--" + data.drums[this.type]["type"].toLowerCase(),
+      sound: require("@/assets/audio/" + data.drums[this.type]["type"] + ".wav"),
       currentSubBeat: 0
     }
   },

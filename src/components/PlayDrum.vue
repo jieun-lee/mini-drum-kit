@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       name: data.drums[this.index]["type"],
-      sound: require("@/assets/audio/"+ data.drums[this.index]["type"] + ".wav"),
+      sound: require("@/assets/audio/" + data.drums[this.index]["type"] + ".wav"),
       keyLetter: data.drums[this.index]["keyLetter"],
       keyCode: data.drums[this.index]["keyCode"],
       color: data.drums[this.index]["color"],

@@ -35,9 +35,9 @@ export default {
   data() {
     return {
       keyPrefix: 0,
-      bpm: 120,
-      subBeats: 4,
-      timeIndex: 1,
+      bpm: 120, // fixed (for now)
+      subBeats: 4, // fixed (for now)
+      timeIndex: 1, // fixed (for now)
       sequences: makeEmptySequenceSet(4, 4, 4),
       isPlaying: false,
       timer: 0,
@@ -66,8 +66,6 @@ export default {
       if (this.currSubBeat === 0) {
         this.currBeat = (this.currBeat >= 3) ? 0 : (this.currBeat + 1);
       }
-      // play sound
-      // console.log(this.currBeat + "-" + this.currSubBeat);
     },
     resetSequence() {
       if (!this.isPlaying) {
