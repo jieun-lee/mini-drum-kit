@@ -2,10 +2,13 @@
   <div class="sequence-bar">
     <div class="sequence-bar__name">{{ this.name }}</div>
     <div class="sequence-bar__beats">
-      <SequenceBeat :typeIndex="this.typeIndex" />
-      <SequenceBeat :typeIndex="this.typeIndex" />
-      <SequenceBeat :typeIndex="this.typeIndex" />
-      <SequenceBeat :typeIndex="this.typeIndex" />
+      <SequenceBeat
+        v-for="(beatData, index) in sequenceArray"
+        :key="index"
+        :type="type"
+        :beat="index"
+        :subBeats="beatData"
+        @clicked-beat="beatClicked" />
     </div>
   </div>
 </template>
@@ -18,11 +21,17 @@ export default {
       SequenceBeat
   },
   props: {
-    typeIndex: Number
+    type: Number,
+    sequenceArray: Array
   },
   data() {
     return {
-      name: data.drums[this.typeIndex]["type"]
+      name: data.drums[this.type]["type"]
+    }
+  },
+  methods: {
+    beatClicked(beat, subBeat, value) {
+      this.$emit("clicked-sequence", this.type, beat, subBeat, value);
     }
   }
 }

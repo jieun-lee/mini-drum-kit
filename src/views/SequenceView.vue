@@ -1,10 +1,12 @@
 <template>
   <div class="sequence-view">
     <SequenceSettings :bpm="this.bpm" :timeIndex="this.timeIndex" />
-    <SequenceBar :typeIndex="this.indexMap['Kick']" />
-    <SequenceBar :typeIndex="this.indexMap['Snare']" />
-    <SequenceBar :typeIndex="this.indexMap['Hat']" />
-    <SequenceBar :typeIndex="this.indexMap['Crash']" />
+    <SequenceBar
+      v-for="(sequenceArray, index) in sequences"
+      :key="keyPrefix + '-' + index"
+      :type="index"
+      :sequenceArray="sequenceArray"
+      @clicked-sequence="sequenceClicked" />
     <div>
       <button class="sequence-view__button" @click="togglePlaying()">
         {{ this.isPlaying ? "STOP" : "PLAY" }}
@@ -20,6 +22,7 @@
 import data from "@/data/drums.json";
 import SequenceSettings from "@/components/SequenceSettings.vue";
 import SequenceBar from "@/components/SequenceBar.vue";
+import { makeEmptySequenceSet } from "@/utils.js";
 export default {
   components: {
     SequenceSettings,
@@ -27,10 +30,12 @@ export default {
   },
   data() {
     return {
+      keyPrefix: 0,
       indexMap: data.indexMap,
       bpm: 120,
       timeIndex: 1,
-      isPlaying: false
+      isPlaying: false,
+      sequences: makeEmptySequenceSet(4, 4, 4)
     }
   },
   methods: {
@@ -38,7 +43,11 @@ export default {
       this.isPlaying = !this.isPlaying;
     },
     resetSequence() {
-      console.log("reset");
+      this.sequences = makeEmptySequenceSet(4, 4, 4);
+    },
+    sequenceClicked(type, beat, subBeat, value) {
+      this.sequences[type][beat][subBeat] = value;
+      this.keyPrefix++;
     }
   }
 }
